@@ -1,0 +1,54 @@
+@startuml
+legend AddElement
+'left to right direction
+
+rectangle Init {
+
+class List1 {
+head *Node = nil
+}
+}
+
+rectangle AddIfNoEmpty {
+
+class List2 {
+head *Node = nil
+}
+class Node2 {
+next *Node
+val int
+}
+
+List2::next --r--> Node2 :head
+
+}
+
+Init -d[hidden]-> AddIfNoEmpty
+
+
+rectangle AddSecond {
+
+class List30 {
+head *Node = nil
+}
+class Node31 {
+next *Node
+val int
+}
+class Node32 {
+next *Node
+val int
+}
+
+Node2 -> Node32
+List30::next --r--> Node31 :head
+Node31::next --r--> Node32 :next
+
+}
+
+AddIfNoEmpty -d[hidden]-> AddSecond
+
+
+
+
+@enduml
